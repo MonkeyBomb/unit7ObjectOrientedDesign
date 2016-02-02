@@ -23,7 +23,11 @@ public class Question
    {
       text = questionText;
    }
-
+   
+   public void addText(String questionText)
+   {
+      text += questionText;
+   }
    /**
       Sets the answer for this question.
       @param correctResponse the answer
