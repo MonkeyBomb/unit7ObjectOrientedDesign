@@ -19,7 +19,16 @@ public class Triangle
   {
      this.frame = new JFrame();
      this.panel = new JPanel();
-        
+     
+     this.frame(panel);
+     
+     Clicklistener listener = new Clicklistener();
+     
+     this.frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
+     this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+     this.frame.setVisible(true);
+     
+     
     
  
     
@@ -30,12 +39,14 @@ public class Triangle
     
     
     
-    public class ClickListener implements ActionListener
+    public class ClickListener implements MouseClickListener
     {
-        public void actionPerformed(ActionEvent event )
+        public void Clicklistener(MouseEvent event) 
         {
-            //label.setText( "Button " + event.getMouseCommand() + " was clicked!");
-            System.out.println( "Button " + event.getActionCommand() + " was clicked!");
+            
+            int x = event.getX();
+            int y = event.getY();
+          
         }
 }
 }
