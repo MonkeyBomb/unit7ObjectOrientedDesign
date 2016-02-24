@@ -1,6 +1,6 @@
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
+import java.awt.BorderLayout;
 /**
  this fram will contain the Frame and the canvas and will alos contain panel
  */
@@ -10,20 +10,29 @@ public class DrawingEditor extends JFrame
     private static final int FRAME_HEIGHT = 400;
 
     private JFrame frame;
-    private JPanel panel;
+    private DrawingPanel canvas;
+    private ControlPanel controls;
     /**
      * Default constructor for objects of class DrawingEditor
      */
     public DrawingEditor()
     {
-       this.frame = new JFrame();
-       this.panel = new JPanel();
-       this.frame.add(this.panel);
+      
+       canvas = new DrawingPanel();
+       controls = new ControlPanel();
        
        
-       this.frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
-       this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-       this.frame.setVisible(true);
+       this.add(canvas, BorderLayout.CENTER);
+       this.add(controls, BorderLayout.SOUTH);
+       
+       
+       this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
+       this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       this.setVisible(true);
+       
+       //DrawingPanel canvas = new DrawingPanel();
+       //ControlPanel controls = new ControlPanel(canvas);
+        
     }
 
     public static void main(String[] args)
@@ -37,7 +46,7 @@ public class DrawingEditor extends JFrame
         
     }
     
-    public controls()
+    public void controls()
     {
     
     }

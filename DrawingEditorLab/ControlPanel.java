@@ -1,23 +1,39 @@
 import javax.swing.JPanel;
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 
-/**
- * Write a description of class ControlPanel here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class ControlPanel
+public class ControlPanel extends JPanel
 {
-    /** description of instance variable x (add comment for each instance variable) */
-    private int x;
-
+    private JFrame frame;
+    private JPanel panel;
+    private JLabel label;
+    private JButton AddCircle;
+    private JButton AddSquare;
+    private JButton PickColour;
+    
     /**
      * Default constructor for objects of class ControlPanel
      */
     public ControlPanel()
     {
-        // initialise instance variables
-        x = 0;
+        //this.label = new JLabel();
+        //this.panel.add( this.label );
+        
+        JButton AddCircle = new JButton ("Circle");
+        JButton AddSquare = new JButton ("Square");
+        JButton PickColour = new JButton ("Pick Colour");
+        this.add(AddCircle);
+        this.add(AddSquare);
+        this.add(PickColour);
+        getColourPanel = new JPanel();
+        this.add(getColourPanel.setBackGroundColor(BLACK));
+        
+        //frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
+        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //DrawingPanel canvas = new DrawingPanel();
+        //ControlPanel controls = new ControlPanel(canvas);
+        
     }
 
     /**
@@ -31,10 +47,10 @@ public class ControlPanel
      * @param    y    description of parameter y
      * @return    description of the return value
      */
-    public int sampleMethod(int y)
+    public static void main(String[] args)
     {
-        // put your code here
-        return x+y;
+        ControlPanel view = new ControlPanel();
+        
     }
 
 }
