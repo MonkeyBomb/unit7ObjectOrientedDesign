@@ -2,38 +2,36 @@ import javax.swing.JPanel;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-
+import java.awt.Color;
 public class ControlPanel extends JPanel
 {
-    private JFrame frame;
-    private JPanel panel;
-    private JLabel label;
     private JButton AddCircle;
     private JButton AddSquare;
-    private JButton PickColour;
-    
+    private JButton PickColor;
+    private JPanel panel;
     /**
      * Default constructor for objects of class ControlPanel
      */
     public ControlPanel()
     {
-        //this.label = new JLabel();
-        //this.panel.add( this.label );
-        
+
         JButton AddCircle = new JButton ("Circle");
         JButton AddSquare = new JButton ("Square");
-        JButton PickColour = new JButton ("Pick Colour");
+        JButton PickColor = new JButton ("Pick Colour");
+        this.panel = new JPanel();
+        Color background = this.getBackground();
+        panel.setBackground(background);
+        
+        this.add(PickColor);
+        this.add(this.panel);
         this.add(AddCircle);
         this.add(AddSquare);
-        this.add(PickColour);
-        getColourPanel = new JPanel();
-        this.add(getColourPanel.setBackGroundColor(BLACK));
         
-        //frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
-        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //DrawingPanel canvas = new DrawingPanel();
-        //ControlPanel controls = new ControlPanel(canvas);
-        
+        ClickListener listener = new ClickListener();
+        this.AddCircle.addActionListener(listener);
+        this.AddSquare.addActionListener(listener);
+        this.PickColor.addActionListener(listener);
+       
     }
 
     /**
@@ -50,7 +48,28 @@ public class ControlPanel extends JPanel
     public static void main(String[] args)
     {
         ControlPanel view = new ControlPanel();
-        
+
     }
 
+    public void PickColor()
+    {
+
+    }
+    //     public class ColorListener implements ColorListener
+    //     {
+    //         public void actionPerformed(ActionEvent event)
+    //         {
+    //             canvas.pickColor();
+    //             Color currentColor = canvas.getColor();
+    //             getColorPanel.setBackground(currentColor);
+    //         }
+    //     }
+     public class ClickListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent event )
+        {
+            label.setText( "Button " + event.getActionCommand() + " was clicked!");
+            System.out.println( "Button " + event.getActionCommand() + " was clicked!");
+        }
+    }
 }

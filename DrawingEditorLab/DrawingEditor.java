@@ -12,40 +12,31 @@ public class DrawingEditor extends JFrame
     private JFrame frame;
     private DrawingPanel canvas;
     private ControlPanel controls;
+    
     /**
      * Default constructor for objects of class DrawingEditor
      */
     public DrawingEditor()
     {
-      
        canvas = new DrawingPanel();
        controls = new ControlPanel();
-       
+      
        
        this.add(canvas, BorderLayout.CENTER);
        this.add(controls, BorderLayout.SOUTH);
-       
-       
+   
        this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        this.setVisible(true);
-       
-       //DrawingPanel canvas = new DrawingPanel();
-       //ControlPanel controls = new ControlPanel(canvas);
-        
     }
-
     public static void main(String[] args)
     {
         DrawingEditor view = new DrawingEditor();
-        
     }
-   
     public void canvas()
     {
         
     }
-    
     public void controls()
     {
     
