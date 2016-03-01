@@ -3,52 +3,40 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 public class ControlPanel extends JPanel
 {
-    private JButton AddCircle;
-    private JButton AddSquare;
-    private JButton PickColor;
+    private JButton addCircle;
+    private JButton addSquare;
+    private JButton pickColor;
     private JPanel panel;
+    private JLabel label;
+    private DrawingPanel drawingPanel;
     /**
      * Default constructor for objects of class ControlPanel
      */
-    public ControlPanel()
+    public ControlPanel( DrawingPanel drawingPanel )
     {
-
-        JButton AddCircle = new JButton ("Circle");
-        JButton AddSquare = new JButton ("Square");
-        JButton PickColor = new JButton ("Pick Colour");
+        this.drawingPanel = drawingPanel;
+        
+        this.addCircle = new JButton ("Circle");
+        this.addSquare = new JButton ("Square");
+        this.pickColor = new JButton ("Pick Colour");
         this.panel = new JPanel();
         Color background = this.getBackground();
         panel.setBackground(background);
         
-        this.add(PickColor);
+        this.add(pickColor);
         this.add(this.panel);
-        this.add(AddCircle);
-        this.add(AddSquare);
+        this.add(addCircle);
+        this.add(addSquare);
         
         ClickListener listener = new ClickListener();
-        this.AddCircle.addActionListener(listener);
-        this.AddSquare.addActionListener(listener);
-        this.PickColor.addActionListener(listener);
+        this.addCircle.addActionListener(listener);
+        this.addSquare.addActionListener(listener);
+        this.pickColor.addActionListener(listener);
        
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
-     */
-    public static void main(String[] args)
-    {
-        ControlPanel view = new ControlPanel();
-
     }
 
     public void PickColor()
@@ -68,8 +56,25 @@ public class ControlPanel extends JPanel
     {
         public void actionPerformed(ActionEvent event )
         {
-            label.setText( "Button " + event.getActionCommand() + " was clicked!");
-            System.out.println( "Button " + event.getActionCommand() + " was clicked!");
+            if (event.getActionCommand().equals("Circle"))
+            {
+                System.out.println("The Circle Button was pressed");
+                //drawingPanel.addCircle();
+            }
+            else if (event.getActionCommand().equals("Square"))
+            {
+                System.out.println("The Square Button was pressed");
+                //drawingPanel.addSquare();
+            }
+             else if (event.getActionCommand().equals("Pick Colour"))
+            {
+                System.out.println("The Pick Colour Button was pressed");
+                //drawingPanel.pickColor();
+            }
+            else
+            {
+                System.out.println("Nothing was pressed");
+            }
         }
     }
 }
