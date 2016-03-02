@@ -13,6 +13,7 @@ public class ControlPanel extends JPanel
     private JPanel panel;
     private JLabel label;
     private DrawingPanel drawingPanel;
+    //private Color panelColor;
     /**
      * Default constructor for objects of class ControlPanel
      */
@@ -26,7 +27,8 @@ public class ControlPanel extends JPanel
         this.panel = new JPanel();
         Color background = this.getBackground();
         panel.setBackground(background);
-        
+        //panelColor = drawingPanel.pickColor();
+        // panel.setBackground(panelColor);
         this.add(pickColor);
         this.add(this.panel);
         this.add(addCircle);
@@ -39,10 +41,6 @@ public class ControlPanel extends JPanel
        
     }
 
-    public void PickColor()
-    {
-
-    }
     //     public class ColorListener implements ColorListener
     //     {
     //         public void actionPerformed(ActionEvent event)
@@ -59,17 +57,19 @@ public class ControlPanel extends JPanel
             if (event.getActionCommand().equals("Circle"))
             {
                 System.out.println("The Circle Button was pressed");
-                //drawingPanel.addCircle();
+                drawingPanel.addCircle();
             }
             else if (event.getActionCommand().equals("Square"))
             {
                 System.out.println("The Square Button was pressed");
-                //drawingPanel.addSquare();
+                drawingPanel.addSquare();
             }
              else if (event.getActionCommand().equals("Pick Colour"))
             {
                 System.out.println("The Pick Colour Button was pressed");
-                //drawingPanel.pickColor();
+                drawingPanel.pickColor();
+                panel.setBackground(drawingPanel.getColor());
+                
             }
             else
             {

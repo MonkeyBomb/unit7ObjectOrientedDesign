@@ -10,6 +10,10 @@ import java.util.ArrayList;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JColorChooser;
+import javax.swing.JComponent;
+import java.awt.Graphics;
+import java.awt.geom.Rectangle2D;
+//import 
 /**
  * Write a description of class DrawingPanel here.
  * 
@@ -20,34 +24,43 @@ public class DrawingPanel extends JPanel
 {
     /** description of instance variable x (add comment for each instance variable) */
     
-    private JColorChooser colors;
+    private JColorChooser color;
+    private Color objectColor;
+    private ArrayList<Shape> shapes;
+    private Shape activeShape;
     /**
      * Default constructor for objects of class DrawingPanel
      */
     public DrawingPanel()
     {
-       this.setBackground(Color.WHITE);  
+       this.setBackground(Color.WHITE);
+       objectColor = Color.BLUE;
+       shapes = new ArrayList<Shape>();
     }
-    public void setColor()
+    public void getPrefferedSize()
     {
+        
+    }
+    public Color getColor()
+    {
+        return objectColor;
     }
     public void addCircle()
     {
     
-    
     }
-  
     public void addSquare()
     {
+        
     }
-    
     public void pickColor()
     {
-        //JColorChooser colors = new JColorChooser();
-        Color color = color.BLUE;
-        JColorChooser.showDialog(this,"Pick Colour", color);
-        colors = colours;
-        //show dialog
+        Color color = Color.BLUE;
+        objectColor = JColorChooser.showDialog(this,"Pick Colour", objectColor);
+        
+       
     }
-
+    public void paintComponent(Graphics g)
+    {
+    }
 }
